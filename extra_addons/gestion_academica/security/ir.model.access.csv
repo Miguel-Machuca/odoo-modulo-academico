@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_gestion_academica_gestion_academica,gestion_academica.gestion_academica,model_gestion_academica_gestion_academica,base.group_user,1,1,1,1
+access_gestion_academica_aula,gestion_academica.aula,model_gestion_academica_aula,base.group_user,1,1,1,1
+access_gestion_academica_profesor,gestion_academica.profesor,model_gestion_academica_profesor,base.group_user,1,1,1,1
+access_gestion_academica_alumno,gestion_academica.alumno,model_gestion_academica_alumno,base.group_user,1,1,1,1
+access_gestion_academica_materia,gestion_academica.materia,model_gestion_academica_materia,base.group_user,1,1,1,1
+access_gestion_academica_calificacion,gestion_academica.calificacion,model_gestion_academica_calificacion,base.group_user,1,1,1,1

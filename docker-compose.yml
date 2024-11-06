@@ -1,0 +1,34 @@
+version: '3.3'
+
+services:
+  odoo:
+    image: odoo:17
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+    volumes:
+      - odoo-data-prueba:/var/lib/odoo
+      - ./addons:/opt/odoo/addons
+      - ./config:/etc/odoo
+      - ./extra_addons:/opt/odoo/extra_addons
+      - ./log:/var/log/odoo
+    environment:
+      - HOST=value
+      - USER=odoo
+      - PASSWORD=odoo
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data-prueba:/var/lib/postgresql/data
+
+volumes:
+  odoo-data-prueba:
+  db-data-prueba:

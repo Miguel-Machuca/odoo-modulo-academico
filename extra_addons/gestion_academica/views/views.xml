@@ -1,0 +1,142 @@
+<odoo>
+  <data>
+    <!-- Listas -->
+
+    <record model="ir.ui.view" id="gestion_academica.list">
+      <field name="name">Gestion Academica list</field>
+      <field name="model">gestion_academica.gestion_academica</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="gestion"/>          
+        </tree>
+      </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="gestion_academica.aula_list">
+      <field name="name">Aula list</field>
+      <field name="model">gestion_academica.aula</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="seccion"/>          
+          <field name="horario"/>  
+          <field name="gestion_academica_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="gestion_academica.profesor_list">
+      <field name="name">Profesor list</field>
+      <field name="model">gestion_academica.profesor</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="apellido"/>                    
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="gestion_academica.alumno_list">
+      <field name="name">Alumno list</field>
+      <field name="model">gestion_academica.alumno</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="apellido_paterno"/>          
+          <field name="apellido_materno"/>  
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="gestion_academica.materia_list">
+      <field name="name">Materia list</field>
+      <field name="model">gestion_academica.materia</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="codigo"/>          
+        </tree>
+      </field>
+    </record>    
+
+    <record model="ir.ui.view" id="gestion_academica.calificacion_list">
+      <field name="name">Calificacion list</field>
+      <field name="model">gestion_academica.calificacion</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nota"/>                  
+        </tree>
+      </field>
+    </record>  
+
+
+    <!-- acciones -->
+
+    <record model="ir.actions.act_window" id="gestion_academica.action_window">
+      <field name="name">Colegios</field>
+      <field name="res_model">gestion_academica.gestion_academica</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="gestion_academica.aula_action_window">
+      <field name="name">Aulas </field>
+      <field name="res_model">gestion_academica.aula</field>
+      <field name="view_mode">tree,form</field>
+    </record>    
+
+    <record model="ir.actions.act_window" id="gestion_academica.profesor_action_window">
+      <field name="name">Profesores </field>
+      <field name="res_model">gestion_academica.profesor</field>
+      <field name="view_mode">tree,form</field>
+    </record>    
+
+    <record model="ir.actions.act_window" id="gestion_academica.alumno_action_window">
+      <field name="name">Alumnos </field>
+      <field name="res_model">gestion_academica.alumno</field>
+      <field name="view_mode">tree,form</field>
+    </record>    
+
+    <record model="ir.actions.act_window" id="gestion_academica.materia_action_window">
+      <field name="name">Materias </field>
+      <field name="res_model">gestion_academica.materia</field>
+      <field name="view_mode">tree,form</field>
+    </record>       
+
+    <record model="ir.actions.act_window" id="gestion_academica.calificacion_action_window">
+      <field name="name">Califiaciones </field>
+      <field name="res_model">gestion_academica.calificacion</field>
+      <field name="view_mode">tree,form</field>
+    </record>   
+
+    <!-- menu item -->
+
+    <menuitem name="Gestion Academica" id="gestion_academica.menu_root"/>
+
+    <!-- menu categorias -->
+
+    <menuitem name="Colegio" id="gestion_academica.menu_1" parent="gestion_academica.menu_root"/>
+    <menuitem name="Aulas" id="gestion_academica.menu_2" parent="gestion_academica.menu_root"/>
+    <menuitem name="Profesores" id="gestion_academica.menu_3" parent="gestion_academica.menu_root"/>
+    <menuitem name="Alumnos" id="gestion_academica.menu_4" parent="gestion_academica.menu_root"/>
+    <menuitem name="Materias" id="gestion_academica.menu_5" parent="gestion_academica.menu_root"/>
+    <menuitem name="Calificaciones" id="gestion_academica.menu_6" parent="gestion_academica.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="Gestion Colegio" id="gestion_academica.menu_1_list" parent="gestion_academica.menu_1"
+              action="gestion_academica.action_window"/>
+    <menuitem name="Gestion Aula" id="gestion_academica.menu_2_list" parent="gestion_academica.menu_2"
+              action="gestion_academica.aula_action_window"/>
+    <menuitem name="Gestion Profesor" id="gestion_academica.menu_3_list" parent="gestion_academica.menu_3"
+              action="gestion_academica.profesor_action_window"/>   
+    <menuitem name="Gestion Alumno" id="gestion_academica.menu_4_list" parent="gestion_academica.menu_4"
+              action="gestion_academica.alumno_action_window"/>
+    <menuitem name="Gestion Materia" id="gestion_academica.menu_5_list" parent="gestion_academica.menu_5"
+              action="gestion_academica.materia_action_window"/>  
+    <menuitem name="Gestion Calificacion" id="gestion_academica.menu_6_list" parent="gestion_academica.menu_6"
+              action="gestion_academica.calificacion_action_window"/>               
+
+  </data>
+</odoo>
