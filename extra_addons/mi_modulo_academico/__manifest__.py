@@ -5,7 +5,7 @@
     'description': 'Gestión de matrículas, cursos, horarios, evaluaciones, pagos y más.',
     'author': 'sw1-grupo7',
     'website': 'http://www.tusitio.com',
-    'category': 'Education',
+    'category': 'Educación',
     'depends': ['base', 'crm', 'account', 'web'],
     'data': [
         'security/mi_modulo_academico_security.xml',

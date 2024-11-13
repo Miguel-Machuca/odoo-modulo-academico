@@ -17,22 +17,22 @@
         </field>
     </record>
 
-    <record id="view_materia_tree" model="ir.ui.view">
-        <field name="name">materia.tree</field>
+    <record id="view_materia_list" model="ir.ui.view">
+        <field name="name">materia.list</field>
         <field name="model">mi_modulo_academico.materia</field>
         <field name="arch" type="xml">
-            <tree string="Materia">
+            <list string="Materia">
                 <field name="name"/>
                 <field name="curso_id"/>
                 <field name="profesor_id"/>
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="action_materia" model="ir.actions.act_window">
         <field name="name">Materias</field>
         <field name="res_model">mi_modulo_academico.materia</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <menuitem id="menu_materia" name="Materias" parent="menu_mi_modulo_academico_root" action="action_materia" sequence="110"/>

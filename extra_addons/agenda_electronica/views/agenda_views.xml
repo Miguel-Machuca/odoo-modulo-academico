@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Vista lista para Eventos -->
+        <record model="ir.ui.view" id="view_agenda_evento_list">
+            <field name="name">Agenda Evento List</field>
+            <field name="model">agenda.evento</field>
+            <field name="arch" type="xml">
+                <list string="Eventos">
+                    <field name="nombre" />
+                    <field name="fecha_inicio" />
+                    <field name="fecha_fin" />
+                    <field name="estado" />
+                    <field name="id_profesor" />
+                    <field name="id_alumno" />
+                    <field name="id_curso" />
+                </list>
+            </field>
+        </record>
+
+        <!-- Vista formulario para Eventos -->
+        <record model="ir.ui.view" id="view_agenda_evento_form">
+            <field name="name">Agenda Evento Form</field>
+            <field name="model">agenda.evento</field>
+            <field name="arch" type="xml">
+                <form string="Evento">
+                    <sheet>
+                        <group>
+                            <field name="nombre" />
+                            <field name="descripcion" />
+                        </group>
+                        <group>
+                            <field name="fecha_inicio" />
+                            <field name="fecha_fin" />
+                            <field name="estado" />
+                        </group>
+                        <group>
+                            <field name="id_profesor" />
+                            <field name="id_alumno" />
+                            <field name="id_curso" />
+                            <field name="id_colegio" />
+                            <field name="id_apoderado" />
+                        </group>
+                        <group>
+                            <field name="participantes" widget="many2many_tags" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista calendario para Eventos -->
+        <record model="ir.ui.view" id="view_agenda_evento_calendar">
+            <field name="name">Agenda Evento Calendar</field>
+            <field name="model">agenda.evento</field>
+            <field name="arch" type="xml">
+                <calendar string="Eventos" date_start="fecha_inicio" date_stop="fecha_fin">
+                    <field name="nombre" />
+                    <field name="estado" />
+                </calendar>
+            </field>
+        </record>
+
+        <!-- Acción para gestionar Eventos -->
+        <record id="action_agenda_evento" model="ir.actions.act_window">
+            <field name="name">Agenda</field>
+            <field name="res_model">agenda.evento</field>
+            <field name="view_mode">calendar,list,form</field>
+        </record>
+
+        <!-- Menú para la Agenda -->
+        <menuitem id="menu_agenda" name="Agenda" parent="menu_agenda_parent" action="action_agenda_evento" sequence="10" />
+
+    </data>
+</odoo>

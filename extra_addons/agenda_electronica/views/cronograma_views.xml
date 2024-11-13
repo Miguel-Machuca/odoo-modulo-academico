@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Vista lista para Cronograma -->
+        <record model="ir.ui.view" id="view_cronograma_list">
+            <field name="name">Cronograma List</field>
+            <field name="model">cronograma</field>
+            <field name="arch" type="xml">
+                <list string="Cronogramas">
+                    <field name="id_materia" />
+                    <field name="id_curso" />
+                    <field name="id_profesor" />
+                    <field name="dias" />
+                    <field name="hora_inicio" widget="time" />
+                    <field name="hora_fin" widget="time" />
+                </list>
+            </field>
+        </record>
+
+        <!-- Vista formulario para Cronograma -->
+        <record model="ir.ui.view" id="view_cronograma_form">
+            <field name="name">Cronograma Form</field>
+            <field name="model">cronograma</field>
+            <field name="arch" type="xml">
+                <form string="Cronograma">
+                    <sheet>
+                        <group>
+                            <field name="id_materia" />
+                            <field name="id_curso" />
+                            <field name="id_profesor" />
+                        </group>
+                        <group>
+                            <field name="dias" />
+                            <field name="hora_inicio" widget="time" />
+                            <field name="hora_fin" widget="time" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Acción para gestionar Cronogramas -->
+        <record id="action_cronograma" model="ir.actions.act_window">
+            <field name="name">Cronogramas</field>
+            <field name="res_model">cronograma</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Menú para Cronogramas -->
+        <menuitem id="menu_cronograma" name="Cronogramas" parent="menu_agenda_electronica" action="action_cronograma" sequence="6"/>
+
+    </data>
+</odoo>
+
+

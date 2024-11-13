@@ -1,0 +1,85 @@
+<!-- views/administracion_views.xml -->
+<odoo>
+    <data>
+        <!-- Vista de Formulario para Administración -->
+        <record id="view_users_form_administracion" model="ir.ui.view">
+            <field name="name">res.users.form.administracion</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="inside">
+                    <!-- Predefinir el campo tipo_usuario pero sin ocultarlo -->
+                    <field name="tipo_usuario" invisible="1" context="{'default_tipo_usuario': 'administracion'}"/>
+
+                    <!-- Campos específicos para Administración -->
+                    <group string="Información Adicional">
+                        <field name="nombre"/>
+                        <field name="apellido_paterno"/>
+                        <field name="apellido_materno"/>
+                    </group>
+                    <group string="Información Laboral">
+                        <field name="puesto"/>
+                        <field name="fecha_ingreso"/>
+                    </group>
+                    <group string="Contacto">
+                        <field name="telefono"/>
+                        <field name="email"/>
+                    </group>
+                    <group string="Contraseña">
+                        <!-- Mostrar directamente el campo para definir la contraseña -->
+                        <field name="new_password" password="True"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Vista Kanban para Administración -->
+        <record id="view_users_kanban_administracion" model="ir.ui.view">
+            <field name="name">res.users.kanban.administracion</field>
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+                <kanban string="Administración">
+                    <field name="nombre"/>
+                    <field name="apellido_paterno"/>
+                    <field name="apellido_materno"/>
+                    <field name="puesto"/>
+                    <field name="telefono"/>
+                    <field name="email"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="oe_kanban_content">
+                                    <strong>
+                                        <field name="nombre"/> 
+                                        <field name="apellido_paterno"/> 
+                                        <field name="apellido_materno"/>
+                                    </strong>
+                                    <div>Puesto: <field name="puesto"/></div>
+                                    <div>Teléfono: <field name="telefono"/></div>
+                                    <div>Email: <field name="email"/></div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Acción para Administración -->
+        <record id="action_administracion" model="ir.actions.act_window">
+            <field name="name">Administración</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">kanban,form</field>
+            <field name="domain">[('tipo_usuario', '=', 'administracion')]</field>
+            <field name="context">{'default_tipo_usuario': 'administracion'}</field>
+            <field name="views" eval="[ 
+                (ref('view_users_kanban_administracion'), 'kanban'),
+                (ref('view_users_form_administracion'), 'form')
+            ]"/>
+        </record>
+
+        <!-- Menú para Administración -->
+        <menuitem id="menu_administracion" name="Administración" parent="menu_usuario_parent"
+                  action="action_administracion" sequence="1"/>
+    </data>
+</odoo>

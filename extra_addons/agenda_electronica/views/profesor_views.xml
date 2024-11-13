@@ -1,0 +1,79 @@
+<!-- views/profesor_views.xml -->
+<odoo>
+    <data>
+        <!-- Vista de Formulario para Profesor -->
+        <record id="view_users_form_profesor" model="ir.ui.view">
+            <field name="name">res.users.form.profesor</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="inside">
+                    <!-- Ocultar el campo tipo_usuario -->
+                    <field name="tipo_usuario" invisible="1"/>
+
+                    <!-- Campos específicos para Profesor -->
+                    <group string="Información Adicional">
+                        <field name="nombre"/>
+                        <field name="apellido_paterno"/>
+                        <field name="apellido_materno"/>
+                    </group>
+                    <group string="Información Profesional">
+                        <field name="especialidad"/>
+                    </group>
+                    <group string="Relación con Alumnos">
+                        <field name="alumnos_ids" widget="many2many_tags"/>
+                    </group>
+                    <group string="Contacto">
+                        <field name="telefono"/>
+                        <field name="email"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Vista Kanban para Profesor -->
+        <record id="view_users_kanban_profesor" model="ir.ui.view">
+            <field name="name">res.users.kanban.profesor</field>
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+                <kanban string="Profesores">
+                    <field name="nombre"/>
+                    <field name="apellido_paterno"/>
+                    <field name="apellido_materno"/>
+                    <field name="especialidad"/>
+                    <field name="telefono"/>
+                    <field name="email"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="oe_kanban_content">
+                                    <strong><field name="nombre"/> <field name="apellido_paterno"/> <field name="apellido_materno"/></strong>
+                                    <div>Especialidad: <field name="especialidad"/></div>
+                                    <div>Teléfono: <field name="telefono"/></div>
+                                    <div>Email: <field name="email"/></div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Acción para Profesor -->
+        <record id="action_profesor" model="ir.actions.act_window">
+            <field name="name">Profesores</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">kanban,form</field>
+            <field name="domain">[('tipo_usuario', '=', 'profesor')]</field>
+            <field name="context">{'default_tipo_usuario': 'profesor'}</field>
+            <field name="views" eval="[ 
+                (ref('view_users_kanban_profesor'), 'kanban'),
+                (ref('view_users_form_profesor'), 'form')
+            ]"/>
+        </record>
+
+        <!-- Menú para Profesor -->
+        <menuitem id="menu_profesor" name="Profesores" parent="menu_usuario_parent"
+            action="action_profesor" sequence="4"/> 
+    </data>
+</odoo>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Vista lista para Comunicados -->
+        <record model="ir.ui.view" id="view_comunicado_list">
+            <field name="name">Comunicado List</field>
+            <field name="model">comunicado</field>
+            <field name="arch" type="xml">
+                <list string="Comunicados">
+                    <field name="titulo" />
+                    <field name="fecha_publicacion" />
+                    <field name="estado" />
+                    <field name="id_curso" />
+                </list>
+            </field>
+        </record>
+
+        <!-- Vista formulario para Comunicados -->
+        <record model="ir.ui.view" id="view_comunicado_form">
+            <field name="name">Comunicado Form</field>
+            <field name="model">comunicado</field>
+            <field name="arch" type="xml">
+                <form string="Comunicado">
+                    <sheet>
+                        <group>
+                            <field name="titulo" />
+                            <field name="descripcion" />
+                        </group>
+                        <group>
+                            <field name="fecha_publicacion" />
+                            <field name="estado" />
+                            <field name="id_curso" />
+                        </group>
+                        <group>
+                            <field name="destinatarios_profesores" widget="many2many_tags" />
+                            <field name="destinatarios_alumnos" widget="many2many_tags" />
+                            <field name="destinatarios_apoderados" widget="many2many_tags" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista calendario para Comunicados -->
+        <record model="ir.ui.view" id="view_comunicado_calendar">
+            <field name="name">Comunicado Calendar</field>
+            <field name="model">comunicado</field>
+            <field name="arch" type="xml">
+                <calendar string="Comunicados" date_start="fecha_publicacion">
+                    <field name="titulo" />
+                    <field name="estado" />
+                </calendar>
+            </field>
+        </record>
+
+        <!-- Acción para gestionar Comunicados -->
+        <record id="action_comunicado" model="ir.actions.act_window">
+            <field name="name">Comunicados</field>
+            <field name="res_model">comunicado</field>
+            <field name="view_mode">calendar,list,form</field>
+        </record>
+
+        <!-- Menú para Comunicados -->
+        <menuitem id="menu_comunicados" name="Comunicados" parent="menu_comunicado_parent" action="action_comunicado" sequence="20" />
+
+    </data>
+</odoo>

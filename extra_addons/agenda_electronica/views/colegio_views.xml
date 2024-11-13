@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Vista Kanban para Colegio -->
+        <record model="ir.ui.view" id="view_colegio_kanban">
+            <field name="name">Colegio Kanban</field>
+            <field name="model">colegio</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="nombre"/>
+                    <field name="direccion"/>
+                    <field name="telefono"/>
+                    <field name="email"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="oe_kanban_content">
+                                    <strong><field name="nombre"/></strong>
+                                    <div><field name="direccion"/></div>
+                                    <div>Teléfono: <field name="telefono"/></div>
+                                    <div>Email: <field name="email"/></div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Vista de Formulario para Colegio -->
+        <record model="ir.ui.view" id="view_colegio_form">
+            <field name="name">Colegio Form</field>
+            <field name="model">colegio</field>
+            <field name="arch" type="xml">
+                <form string="Colegio">
+                    <sheet>
+                        <group>
+                            <field name="nombre"/>
+                            <field name="direccion"/>
+                        </group>
+                        <group>
+                            <field name="telefono"/>
+                            <field name="email"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Acción para Colegio -->
+        <record id="action_colegio" model="ir.actions.act_window">
+            <field name="name">Colegios</field>
+            <field name="res_model">colegio</field>
+            <field name="view_mode">kanban,form</field>
+            <field name="views" eval="[
+                (ref('view_colegio_kanban'), 'kanban'),
+                (ref('view_colegio_form'), 'form')
+            ]"/>
+        </record>
+
+        <!-- Menú para Colegio -->
+        <menuitem id="menu_colegio" name="Colegios" parent="menu_colegio_parent" action="action_colegio" sequence="1"/>
+    </data>
+</odoo>

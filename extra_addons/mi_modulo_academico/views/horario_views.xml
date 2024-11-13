@@ -17,15 +17,15 @@
     </record>
 
     <!-- Definición de la vista árbol -->
-    <record id="view_horario_tree" model="ir.ui.view">
-        <field name="name">horario.tree</field>
+    <record id="view_horario_list" model="ir.ui.view">
+        <field name="name">horario.list</field>
         <field name="model">mi_modulo_academico.horario</field>
         <field name="arch" type="xml">
-            <tree string="Horario">
+            <list string="Horario">
                 <field name="name"/>
                 <field name="hora_inicio"/>
                 <field name="hora_fin"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -33,7 +33,7 @@
     <record id="action_horario" model="ir.actions.act_window">
         <field name="name">Horarios</field>
         <field name="res_model">mi_modulo_academico.horario</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <!-- Definición del menú -->

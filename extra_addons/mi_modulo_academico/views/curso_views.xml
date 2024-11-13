@@ -18,16 +18,16 @@
     </record>
 
     <!-- Definición de la vista árbol -->
-    <record id="view_curso_tree" model="ir.ui.view">
-        <field name="name">curso.tree</field>
+    <record id="view_curso_list" model="ir.ui.view">
+        <field name="name">curso.list</field>
         <field name="model">mi_modulo_academico.curso</field>
         <field name="arch" type="xml">
-            <tree string="Curso">
+            <list string="Curso">
                 <field name="name"/>
                 <field name="nivel"/>
                 <field name="grado"/>
                 <field name="turno"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -35,7 +35,7 @@
     <record id="action_curso" model="ir.actions.act_window">
         <field name="name">Cursos</field>
         <field name="res_model">mi_modulo_academico.curso</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <!-- Definición del menú -->

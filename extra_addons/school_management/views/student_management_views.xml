@@ -34,11 +34,11 @@
 
 
         <!-- VISTAS DE TABLAS -->
-        <record model="ir.ui.view" id="view_student_tree">
+        <record model="ir.ui.view" id="view_student_list">
             <field name="name">school list</field>
             <field name="model">school.student</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="name" />
                     <field name="lastname" />
                     <field name="birthdate" />
@@ -47,51 +47,51 @@
                     <field name="cellphone" />
                     <!-- <field name="tutor_principal" />
                     <field name="tutor_secundary" /> -->
-                </tree>
+                </list>
             </field>
         </record>
 
-        <record model="ir.ui.view" id="view_tutor_tree">
+        <record model="ir.ui.view" id="view_tutor_list">
             <field name="name">School Tutor List</field>
             <field name="model">school.tutor</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="name" />
                     <field name="last_name" />
                     <field name="cellphone" />
                     <field name="email" />
-                </tree>
+                </list>
             </field>
         </record>
 
-        <record model="ir.ui.view" id="view_enrollment_tree">
+        <record model="ir.ui.view" id="view_enrollment_list">
             <field name="name">Enrollment</field>
             <field name="model">school.enrollment</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="date_of_enrollment" />
                     <field name="course_id" />
                     <field name="student_id" />
-                </tree>
+                </list>
             </field>
         </record>
 
         <record id="action_student" model="ir.actions.act_window">
             <field name="name">Estudiantes</field>
             <field name="res_model">school.student</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
         <record id="action_tutor" model="ir.actions.act_window">
             <field name="name">Tutor</field>
             <field name="res_model">school.tutor</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
         <record id="action_enrollment" model="ir.actions.act_window">
             <field name="name">Enrollment</field>
             <field name="res_model">school.enrollment</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
         <menuitem id="menu_student" name="Students" parent="menu_student_management"
@@ -118,21 +118,21 @@
         </field>
     </record>
 
-    <record id="view_student_tree" model="ir.ui.view">
-        <field name="name">school.student.tree</field>
+    <record id="view_student_list" model="ir.ui.view">
+        <field name="name">school.student.list</field>
         <field name="model">school.student</field>
         <field name="arch" type="xml">
-            <tree string="Students">
+            <list string="Students">
                 <field name="name"/>
                 <field name="birthdate"/>
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="action_student" model="ir.actions.act_window">
         <field name="name">Students</field>
         <field name="res_model">school.student</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>-->
 
 

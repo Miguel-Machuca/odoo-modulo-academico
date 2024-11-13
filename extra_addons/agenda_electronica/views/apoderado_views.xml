@@ -1,0 +1,82 @@
+<!-- views/apoderado_views.xml -->
+<odoo>
+    <data>
+        <!-- Vista de Formulario para Apoderado -->
+        <record id="view_users_form_apoderado" model="ir.ui.view">
+            <field name="name">res.users.form.apoderado</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="inside">
+                    <!-- Ocultar el campo tipo_usuario -->
+                    <field name="tipo_usuario" invisible="1"/>
+
+                    <!-- Campos específicos para Apoderado -->
+                    <group string="Información Adicional">
+                        <field name="nombre"/>
+                        <field name="apellido_paterno"/>
+                        <field name="apellido_materno"/>
+                    </group>
+                    <group string="Relación Familiar">
+                        <field name="relacion_familiar"/>
+                        <field name="direccion"/>
+                    </group>
+                    <group string="Relación con Alumnos">
+                        <field name="alumnos_ids" widget="many2many_tags"/>
+                    </group>
+                    <group string="Contacto">
+                        <field name="telefono"/>
+                        <field name="email"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Vista Kanban para Apoderado -->
+        <record id="view_users_kanban_apoderado" model="ir.ui.view">
+            <field name="name">res.users.kanban.apoderado</field>
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+                <kanban string="Apoderados">
+                    <field name="nombre"/>
+                    <field name="apellido_paterno"/>
+                    <field name="apellido_materno"/>
+                    <field name="relacion_familiar"/>
+                    <field name="direccion"/>
+                    <field name="telefono"/>
+                    <field name="email"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="oe_kanban_content">
+                                    <strong><field name="nombre"/> <field name="apellido_paterno"/> <field name="apellido_materno"/></strong>
+                                    <div><field name="relacion_familiar"/></div>
+                                    <div>Dirección: <field name="direccion"/></div>
+                                    <div>Teléfono: <field name="telefono"/></div>
+                                    <div>Email: <field name="email"/></div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Acción para Apoderado -->
+        <record id="action_apoderado" model="ir.actions.act_window">
+            <field name="name">Apoderados</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">kanban,form</field>
+            <field name="domain">[('tipo_usuario', '=', 'apoderado')]</field>
+            <field name="context">{'default_tipo_usuario': 'apoderado'}</field>
+            <field name="views" eval="[ 
+                (ref('view_users_kanban_apoderado'), 'kanban'),
+                (ref('view_users_form_apoderado'), 'form')
+            ]"/>
+        </record>
+
+        <!-- Menú para Apoderado -->
+        <menuitem id="menu_apoderado" name="Apoderados" parent="menu_usuario_parent"
+                  action="action_apoderado" sequence="2"/>    
+    </data>
+</odoo>

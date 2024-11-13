@@ -14,21 +14,21 @@
         </field>
     </record>
 
-    <record id="view_comunicado_tree" model="ir.ui.view">
-        <field name="name">comunicado.tree</field>
+    <record id="view_comunicado_list" model="ir.ui.view">
+        <field name="name">comunicado.list</field>
         <field name="model">mi_modulo_academico.comunicado</field>
         <field name="arch" type="xml">
-            <tree string="Comunicado">
+            <list string="Comunicado">
                 <field name="titulo"/>
                 <field name="descripcion"/>
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="action_comunicado" model="ir.actions.act_window">
         <field name="name">Comunicados</field>
         <field name="res_model">mi_modulo_academico.comunicado</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <menuitem id="menu_comunicado" name="Comunicados" parent="menu_mi_modulo_academico_root" action="action_comunicado" sequence="80"/>

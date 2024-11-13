@@ -10,15 +10,15 @@
                         <field name="curso_id"/>
                         <field name="profesor_id"/>
                         <field name="materia_ids">
-                            <tree string="Materias">
+                            <list string="Materias">
                                 <field name="name"/>
-                            </tree>
+                            </list>
                         </field>
                         <field name="nota_ids">
-                            <tree string="Notas">
+                            <list string="Notas">
                                 <field name="materia_id"/>
                                 <field name="ponderacion"/>
-                            </tree>
+                            </list>
                         </field>
                     </group>
                 </sheet>
@@ -26,22 +26,22 @@
         </field>
     </record>
 
-    <record id="view_boletin_alumno_tree" model="ir.ui.view">
-        <field name="name">boletin_alumno.tree</field>
+    <record id="view_boletin_alumno_list" model="ir.ui.view">
+        <field name="name">boletin_alumno.list</field>
         <field name="model">mi_modulo_academico.boletin_alumno</field>
         <field name="arch" type="xml">
-            <tree string="Boletín de Alumno">
+            <list string="Boletín de Alumno">
                 <field name="alumno_id"/>
                 <field name="curso_id"/>
                 <field name="profesor_id"/>
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="action_boletin_alumno" model="ir.actions.act_window">
         <field name="name">Boletines de Alumno</field>
         <field name="res_model">mi_modulo_academico.boletin_alumno</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <menuitem id="menu_boletin_alumno" name="Boletines de Alumno" parent="menu_mi_modulo_academico_root" action="action_boletin_alumno" sequence="160"/>

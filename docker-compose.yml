@@ -1,14 +1,14 @@
-version: '3.3'
+version: '3.8'
 
 services:
   odoo:
-    image: odoo:17
+    image: odoo:latest
     depends_on:
       - db
     ports:
       - "8069:8069"
     volumes:
-      - odoo-data-prueba:/var/lib/odoo
+      - odoo-data-sw1-prueba:/var/lib/odoo
       - ./addons:/opt/odoo/addons
       - ./config:/etc/odoo
       - ./extra_addons:/opt/odoo/extra_addons
@@ -27,8 +27,8 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - db-data-prueba:/var/lib/postgresql/data
+      - db-data-sw1-prueba:/var/lib/postgresql/data
 
 volumes:
-  odoo-data-prueba:
-  db-data-prueba:
+  odoo-data-sw1-prueba:
+  db-data-sw1-prueba:

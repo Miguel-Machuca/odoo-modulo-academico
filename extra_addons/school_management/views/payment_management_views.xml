@@ -21,58 +21,58 @@
         </record>
 
         <!-- TABLAS -->
-        <record model="ir.ui.view" id="view_paymentplan_tree">
+        <record model="ir.ui.view" id="view_paymentplan_list">
             <field name="name">School PaymentPlan List</field>
             <field name="model">school.paymentplan</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="name" />
                     <field name="description" />
                     <field name="amount_plan" />
-                </tree>
+                </list>
             </field>
         </record>
 
-        <record model="ir.ui.view" id="view_studentplan_tree">
+        <record model="ir.ui.view" id="view_studentplan_list">
             <field name="name">School StudentPlan List</field>
             <field name="model">school.studentplan</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="student_id" />
                     <field name="paymentplan_id" />
                     <field name="date_save" />
-                </tree>
+                </list>
             </field>
         </record>
 
-        <record model="ir.ui.view" id="view_payments_tree">
+        <record model="ir.ui.view" id="view_payments_list">
             <field name="name">School Payments List</field>
             <field name="model">school.payments</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="date_payment" />
                     <field name="total_amount" />
                     <field name="paymentplanstudent_id" />
-                </tree>
+                </list>
             </field>
         </record>
 
         <record model="ir.actions.act_window" id="action_paymentplan">
             <field name="name">Payment Plan</field>
             <field name="res_model">school.paymentplan</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
          <record model="ir.actions.act_window" id="action_studentplan">
             <field name="name">Student Plan</field>
             <field name="res_model">school.studentplan</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>        
 
         <record model="ir.actions.act_window" id="action_payments">
             <field name="name">Payments</field>
             <field name="res_model">school.payments</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
         <menuitem id="menu_studentplan" name="Payment Plan" parent="menu_payment_management" action="action_paymentplan"/>   

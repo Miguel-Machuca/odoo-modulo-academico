@@ -19,7 +19,7 @@
     """,
     'author': 'sw1-grupo7',
     'website': 'http://www.yourwebsite.com',
-    'category': 'Education',
+    'category': 'Educación',
     'depends': ['base', 'hr','hr_attendance'],
     'data': [
         'security/ir.model.access.csv',

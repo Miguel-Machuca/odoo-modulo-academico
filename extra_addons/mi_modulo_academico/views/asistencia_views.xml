@@ -15,22 +15,22 @@
         </field>
     </record>
 
-    <record id="view_asistencia_tree" model="ir.ui.view">
-        <field name="name">asistencia.tree</field>
+    <record id="view_asistencia_list" model="ir.ui.view">
+        <field name="name">asistencia.list</field>
         <field name="model">mi_modulo_academico.asistencia</field>
         <field name="arch" type="xml">
-            <tree string="Asistencia">
+            <list string="Asistencia">
                 <field name="fecha"/>
                 <field name="alumno_id"/>
                 <field name="profesor_id"/>
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="action_asistencia" model="ir.actions.act_window">
         <field name="name">Asistencia</field>
         <field name="res_model">mi_modulo_academico.asistencia</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <menuitem id="menu_asistencia" name="Asistencia" parent="menu_mi_modulo_academico_root" action="action_asistencia" sequence="60"/>

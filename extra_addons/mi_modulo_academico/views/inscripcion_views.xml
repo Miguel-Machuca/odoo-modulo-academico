@@ -18,16 +18,16 @@
     </record>
 
     <!-- Vista de árbol -->
-    <record id="view_inscripcion_tree" model="ir.ui.view">
-        <field name="name">inscripcion.tree</field>
+    <record id="view_inscripcion_list" model="ir.ui.view">
+        <field name="name">inscripcion.list</field>
         <field name="model">mi_modulo_academico.inscripcion</field>
         <field name="arch" type="xml">
-            <tree string="Inscripciones">
+            <list string="Inscripciones">
                 <field name="persona_id"/>
                 <field name="curso_id"/>
                 <field name="fecha_inscripcion"/>
                 <field name="lead_id"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -35,7 +35,7 @@
     <record id="action_inscripcion" model="ir.actions.act_window">
         <field name="name">Inscripciones</field>
         <field name="res_model">mi_modulo_academico.inscripcion</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <!-- Menú -->

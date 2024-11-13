@@ -1,0 +1,81 @@
+<odoo>
+    <data>
+        <!-- Vista de Formulario para Alumno -->
+        <record id="view_users_form_alumno" model="ir.ui.view">
+            <field name="name">res.users.form.alumno</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="inside">
+                    <!-- Ocultar el campo tipo_usuario -->
+                    <field name="tipo_usuario" invisible="1"/>
+
+                    <!-- Campos específicos para Alumno -->
+                    <group string="Información Personal">
+                        <field name="nombre"/>
+                        <field name="apellido_paterno"/>
+                        <field name="apellido_materno"/>
+                    </group>
+                    <group string="Información Académica">
+                        <field name="fecha_nacimiento"/>
+                        <field name="grado"/>
+                        <field name="seccion"/>
+                        <field name="apoderado_id"/>
+                    </group>
+                    <group string="Contacto">
+                        <field name="telefono"/>
+                        <field name="email"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Vista Kanban para Alumno -->
+        <record id="view_users_kanban_alumno" model="ir.ui.view">
+            <field name="name">res.users.kanban.alumno</field>
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="nombre"/>
+                    <field name="apellido_paterno"/>
+                    <field name="apellido_materno"/>
+                    <field name="fecha_nacimiento"/>
+                    <field name="grado"/>
+                    <field name="seccion"/>
+                    <field name="apoderado_id"/>
+                    <field name="telefono"/>
+                    <field name="email"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="oe_kanban_content">
+                                    <strong><field name="nombre"/> <field name="apellido_paterno"/> <field name="apellido_materno"/></strong>
+                                    <div><field name="fecha_nacimiento"/></div>
+                                    <div><field name="grado"/> - <field name="seccion"/></div>
+                                    <div><field name="apoderado_id"/></div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Acción para Alumno -->
+        <record id="action_alumno" model="ir.actions.act_window">
+            <field name="name">Alumnos</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">kanban,form</field>
+            <field name="domain">[('tipo_usuario', '=', 'alumno')]</field>
+            <field name="context">{'default_tipo_usuario': 'alumno'}</field>
+            <field name="views" eval="[
+                (ref('view_users_kanban_alumno'), 'kanban'),
+                (ref('view_users_form_alumno'), 'form')
+            ]"/>
+        </record>
+
+        <!-- Menú para Alumno -->
+        <menuitem id="menu_alumno" name="Alumnos" parent="menu_usuario_parent"
+                  action="action_alumno" sequence="3"/>
+    </data>
+</odoo>

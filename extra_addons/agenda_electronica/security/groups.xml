@@ -1,0 +1,27 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Grupo para Administración -->
+        <record id="group_administracion" model="res.groups">
+            <field name="name">Administración</field>
+            <field name="category_id" ref="base.module_category_user_type"/>
+        </record>
+
+        <!-- Grupo para Apoderados -->
+        <record id="group_apoderado" model="res.groups">
+            <field name="name">Apoderados</field>
+            <field name="category_id" ref="base.module_category_user_type"/>
+        </record>
+
+        <!-- Grupo para Alumnos -->
+        <record id="group_alumno" model="res.groups">
+            <field name="name">Alumnos</field>
+            <field name="category_id" ref="base.module_category_user_type"/>
+        </record>
+
+        <!-- Grupo para Profesores -->
+        <record id="group_profesor" model="res.groups">
+            <field name="name">Profesores</field>
+            <field name="category_id" ref="base.module_category_user_type"/>
+        </record>
+    </data>
+</odoo>

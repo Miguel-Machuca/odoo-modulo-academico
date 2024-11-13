@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        
+
+        <menuitem id="menu_agenda_electronica" name="Agenda Electrónica Academica" sequence="1"/>
+        
+        <!-- Menú para la vista -->
+        <menuitem id="menu_colegio_parent" name="Colegio" parent="menu_agenda_electronica" sequence="1" />
+        
+        <menuitem id="menu_usuario_parent" name="Usuarios" parent="menu_agenda_electronica" sequence="2" />
+
+        <menuitem id="menu_afiliacion_parent" name="Afiliaciones" parent="menu_agenda_electronica" sequence="3" />
+
+        <menuitem id="menu_asistencia_parent" name="Asistencia" parent="menu_agenda_electronica" sequence="9" />
+
+        <menuitem id="menu_agenda_parent" name="Agenda" parent="menu_agenda_electronica" sequence="7" />
+
+        <menuitem id="menu_comunicado_parent" name="Comunicado" parent="menu_agenda_electronica" sequence="8" />
+
+        <!-- Menús para cada tipo de usuario -->
+        
+
+
+
+    </data>
+</odoo>

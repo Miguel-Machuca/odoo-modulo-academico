@@ -16,23 +16,23 @@
         </field>
     </record>
 
-    <record id="view_pago_mensualidad_tree" model="ir.ui.view">
-        <field name="name">pago_mensualidad.tree</field>
+    <record id="view_pago_mensualidad_list" model="ir.ui.view">
+        <field name="name">pago_mensualidad.list</field>
         <field name="model">mi_modulo_academico.pago_mensualidad</field>
         <field name="arch" type="xml">
-            <tree string="Pago de Mensualidad">
+            <list string="Pago de Mensualidad">
                 <field name="alumno_id"/>
                 <field name="monto"/>
                 <field name="mes"/>
                 <field name="nit"/>
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="action_pago_mensualidad" model="ir.actions.act_window">
         <field name="name">Pagos de Mensualidad</field>
         <field name="res_model">mi_modulo_academico.pago_mensualidad</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <menuitem id="menu_pago_mensualidad" name="Pagos de Mensualidad" parent="menu_mi_modulo_academico_root" action="action_pago_mensualidad" sequence="110"/>

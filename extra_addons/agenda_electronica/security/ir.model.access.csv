@@ -1,0 +1,24 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_agenda_evento_admin,Access Agenda Evento for Admin,model_agenda_evento,,1,1,1,1
+access_comunicado_admin,Access Comunicado for Admin,model_comunicado,,1,1,1,1
+access_agenda_evento_profesor,Access Agenda Evento for Profesores,model_agenda_evento,,1,1,1,1
+access_comunicado_profesor,Access Comunicado for Profesores,model_comunicado,,1,1,1,1
+access_asistencia_profesor,Access Asistencia for Profesores,model_asistencia,,1,1,1,1
+access_agenda_evento_alumno,Access Agenda Evento for Alumnos,model_agenda_evento,,1,1,1,1
+access_comunicado_alumno,Access Comunicado for Alumnos,model_comunicado,,1,1,1,1
+access_agenda_evento_apoderado,Access Agenda Evento for Apoderados,model_agenda_evento,,1,1,1,1
+access_comunicado_apoderado,Access Comunicado for Apoderados,model_comunicado,,1,1,1,1
+access_colegio,Access Colegio,model_colegio,,1,1,1,1
+access_gestion,Access Gestion,model_gestion,,1,1,1,1
+access_curso,Access Curso,model_curso,,1,1,1,1
+access_afiliacion,Access Afiliacion,model_afiliacion,,1,1,1,1
+access_materia,Access Materia,model_materia,,1,1,1,1
+access_vinculacion,Access Vinculacion,model_vinculacion,,1,1,1,1
+access_cronograma,Access Cronograma,model_cronograma,,1,1,1,1
+access_asistencia_admin,Access Asistencia for Admin,model_asistencia,,1,1,1,1
+access_tipo_asistencia,Access Tipo Asistencia,model_tipo_asistencia,,1,1,1,1
+access_gestion_colegio,Access Gestion-Colegio,model_gestion_colegio,,1,1,1,1
+access_res_users_administracion,Access Administracion,base.model_res_users,,1,1,1,1
+access_res_users_apoderado,Access Apoderado,base.model_res_users,,1,1,1,1
+access_res_users_alumno,Access Alumno,base.model_res_users,,1,1,1,1
+access_res_users_profesor,Access Profesor,base.model_res_users,,1,1,1,1

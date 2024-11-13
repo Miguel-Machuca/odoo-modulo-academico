@@ -17,27 +17,27 @@
         </record>
 
         <!-- TABLAS -->
-        <record model="ir.ui.view" id="view_teacher_tree">
+        <record model="ir.ui.view" id="view_teacher_list">
             <field name="name">School Teacher List</field>
             <field name="model">school.teacher</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="name" />
                     <field name="job_title" />
-                </tree>
+                </list>
             </field>
         </record>
 
-        <record model="ir.ui.view" id="view_teaching_load_tree">
+        <record model="ir.ui.view" id="view_teaching_load_list">
             <field name="name">School Teaching Load List</field>
             <field name="model">school.teaching.load</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="hours_per_week" />
                     <field name="hours_total" />
                     <field name="teacher_id" />
                     <field name="subject_id" />
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -45,13 +45,13 @@
         <record id="action_teacher" model="ir.actions.act_window">
             <field name="name">Teachers</field>
             <field name="res_model">school.teacher</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
         <record id="action_teaching_load" model="ir.actions.act_window">
             <field name="name">Teaching Load</field>
             <field name="res_model">school.teaching.load</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
         <!-- MENU ITEMS -->

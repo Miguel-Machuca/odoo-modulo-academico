@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <record model="ir.ui.view" id="view_grade_tree">
+        <record model="ir.ui.view" id="view_grade_list">
             <field name="name">School Grade List</field>
             <field name="model">school.grade</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="grade" />
                     <field name="year" />
                     <field name="student_name" />
                     <field name="subject_name" />
-                </tree>
+                </list>
             </field>
         </record>
 
         <record id="action_grade" model="ir.actions.act_window">
             <field name="name">Grades</field>
             <field name="res_model">school.grade</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
         <menuitem id="menu_grade" name="Grades" parent="menu_grades_management" action="action_grade"/>

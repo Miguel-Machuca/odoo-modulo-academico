@@ -18,25 +18,25 @@
         </field>
     </record>
 
-    <record id="view_nota_alumno_tree" model="ir.ui.view">
-        <field name="name">nota_alumno.tree</field>
+    <record id="view_nota_alumno_list" model="ir.ui.view">
+        <field name="name">nota_alumno.list</field>
         <field name="model">mi_modulo_academico.nota_alumno</field>
         <field name="arch" type="xml">
-            <tree string="Nota de Alumno">
+            <list string="Nota de Alumno">
                 <field name="alumno_id"/>
                 <field name="curso_id"/>
                 <field name="materia_id"/>
                 <field name="profesor_id"/>
                 <field name="examen_id"/>
                 <field name="ponderacion"/>
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="action_nota_alumno" model="ir.actions.act_window">
         <field name="name">Notas de Alumno</field>
         <field name="res_model">mi_modulo_academico.nota_alumno</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <menuitem id="menu_nota_alumno" name="Notas de Alumno" parent="menu_mi_modulo_academico_root" action="action_nota_alumno" sequence="100"/>

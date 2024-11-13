@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Vista lista para Vinculacion -->
+        <record model="ir.ui.view" id="view_vinculacion_list">
+            <field name="name">Vinculacion List</field>
+            <field name="model">vinculacion</field>
+            <field name="arch" type="xml">
+                <list string="Vinculaciones">
+                    <field name="id_apoderado" />
+                    <field name="id_afiliacion" />
+                    <field name="afinidad" />
+                </list>
+            </field>
+        </record>
+
+        <!-- Vista formulario para Vinculacion -->
+        <record model="ir.ui.view" id="view_vinculacion_form">
+            <field name="name">Vinculacion Form</field>
+            <field name="model">vinculacion</field>
+            <field name="arch" type="xml">
+                <form string="Vinculación">
+                    <sheet>
+                        <group>
+                            <field name="id_apoderado" />
+                            <field name="id_afiliacion" />
+                            <field name="afinidad" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Acción para gestionar Vinculaciones -->
+        <record id="action_vinculacion" model="ir.actions.act_window">
+            <field name="name">Vinculaciones</field>
+            <field name="res_model">vinculacion</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Menú para Vinculaciones -->
+        <menuitem id="menu_vinculacion" name="Vinculaciones" parent="menu_afiliacion_parent" action="action_vinculacion" sequence="2"/>
+        
+    </data>
+</odoo>
